@@ -1,5 +1,7 @@
-From Ubuntu
-Run apt-get install npm
-Run apt-get install nodejs
+FROM node:alpine
+WORKDIR '/app'
 
-ENTRYPOINT todo=npm start
+COPY package.json .
+RUN npm install
+COPY . .
+CMD ["npm","start"]
